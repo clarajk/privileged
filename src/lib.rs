@@ -55,7 +55,11 @@ impl PrivilegeMethod {
     }
 }
 
-pub fn command(
+pub fn command(program: impl AsRef<str>) -> Result<std::process::Command, PrivilegeError> {
+    command_with(program, PrivilegeMethod::from_env()?)
+}
+
+pub fn command_with(
     program: impl AsRef<str>,
     method: PrivilegeMethod,
 ) -> Result<std::process::Command, PrivilegeError> {
