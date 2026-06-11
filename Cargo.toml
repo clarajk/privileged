@@ -1,0 +1,13 @@
+[package]
+name = "privileged"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+nix = { version = "0.31.3", features = ["user"] }
+thiserror = "2.0.18"
+which = "8.0.3"
+
+[features]
+default = []
+pkexec = []
